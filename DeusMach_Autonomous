@@ -1,0 +1,59 @@
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.hardware.ColorSensor;
+
+import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
+
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+
+@Autonomous
+@Disabled
+public class DeusMac_Autonomous.java extends LinearOpMode {
+    private ElapsedTime runtime = new ElapsedTime();
+    //motors
+    private DcMotor topright = null ;
+  private DcMotor Bottomright = null ;
+  private DcMotor topleft = null;
+  private DcMotor Bottomleft = null;
+  private DcMotor spinMotor = null;
+  //Distance Sensors
+  DistanceSensor sensorDistance;
+    ColorSensor sensorColor;
+    
+    
+    
+    @Override
+    public void runOpMode() {
+
+        telemetry.addData("Status", "Initialized");
+        telemetry.update();
+        
+        frontLeftMotor = hardwareMap.dcMotor.get(DcMotor.class, "topleft");
+        backLeftMotor = hardwareMap.dcMotor.get(DcMotor.class, "Bottomleft");
+        frontRightMotor = hardwareMap.dcMotor.get(DcMotor.class, "topright");
+        backRightMotor = hardwareMap.dcMotor.get(DcMotor.class, "Bottomright");
+        frontLeftMotor = hardwareMap.dcMotor.get(DcMotor.class, "spinMotor");
+        
+        //sensor
+        sensorDistance = hardwareMap.get(ColorSensor.class,"")
+        
+        // Wait for the game to start (driver presses PLAY)
+        waitForStart();
+
+        // run until the end of the match (driver presses STOP)
+        while (opModeIsActive()) {
+            telemetry.addData("Status", "Running");
+            telemetry.update();
+
+        }
+    }
+}
